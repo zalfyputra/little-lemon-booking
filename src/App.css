@@ -1,0 +1,333 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: grid;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Markazi+Text:wght@400;500;600;700&display=swap');
+body {
+  color: #000;
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "left right" "left right";
+  max-width: 80rem;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-family: 'Markazi Text', serif;
+  font-size: clamp(1.5rem, 4vw, 64px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3.5vw, 48px);
+} 
+
+h3 {
+  font-size: clamp(1.2rem, 3vw, 36px);
+}
+
+h4 {
+  font-size: clamp(1rem, 2vw, 24px);
+}
+
+h5 {
+  font-size: clamp(0.8rem, 1.5vw, 18px);
+}
+p, span {
+  color: #000;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.main-grid {
+  max-width: 48.27778rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .main-grid {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    grid-template-columns: 1fr;
+  }
+}
+
+.display-title {
+  color: #F4CE14;
+  font-size: clamp(1.8rem, 6vw, 80px);
+}
+
+.sub-title {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  margin-bottom: 2rem;
+}
+.right-image {
+  width: 100%;
+  height: auto;
+}
+.yellow-button {
+  border-radius: 0.83333rem;
+  background: #F4CE14;
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 3rem;
+  border: 0;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}
+/****************************************************
+ *
+ *  Top bar
+ *
+ ****************************************************/
+#header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+}
+
+#logo {
+  width: 10.63061rem;
+  height: 2.88889rem;
+  margin-right: 2rem;
+  grid-column: 1;
+}
+/****************************************************
+ *
+ *  Nav
+ *
+ ****************************************************/
+#nav {
+  width: 48.27778rem;
+  height: 2.88889rem;
+  grid-column: 2;
+  justify-self: end;
+}
+
+#nav div {
+  display: none;
+  cursor: pointer;
+}
+
+#nav div div {
+  width: 25px;
+  height: 2px;
+  background-color: black;
+  margin: 5px;
+}
+
+#nav ul {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 33.66667rem;
+  height: 1.66667rem;
+  padding: 1rem 0;
+}
+
+#nav ul li a {
+  margin: 0 1rem;
+  color: #000;
+  font-family: Karla;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}
+#nav .disabled-link {
+  opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+  #nav {
+    width: auto;
+    height: auto;
+  }
+  #nav div {
+    display: block;
+  }
+
+  #nav ul {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    padding-top: 50px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-100%);
+  }
+  #nav ul.closed {
+    transform: translateY(-100%);
+  }
+  #nav ul.open {
+    transform: translateY(0);
+  }
+  .close-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 2rem;
+  }
+  
+  .hide {
+    display: none;
+  }
+  #nav ul li {
+    list-style: none;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  #nav ul li a {
+    color: black;
+    text-decoration: none;
+  }
+}
+/****************************************************
+ *
+ *  Heros
+ *
+ ****************************************************/
+ .hero {
+  padding: 2rem 1rem;
+  background-color: #495E57;
+  color: #fff;
+ }
+ .hero .main-grid {
+  position: relative;
+ }
+ .hero p {
+  color: #fff;
+  max-width: 30rem;
+ }
+ .hero .right-image {
+    position: absolute;
+    width: 16rem;
+    height: 25rem;
+    right: 0;
+    bottom: -6rem;
+    border-radius: 10px;
+ }
+ #reservation-hero {
+   padding-bottom: 10rem;
+  }
+  #reservation-hero .right-image {
+    bottom: -13rem;
+  }
+  @media (max-width: 768px) {
+   .hero .right-image {
+     display: none;
+   }
+  }
+/****************************************************
+ *
+ *  Booking form
+ *
+ ****************************************************/
+ form {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  background-color: #fff;
+  place-self: center;
+  max-width: 20rem;
+  margin: 5rem auto;
+}
+
+label {
+  display: block;
+}
+
+input[type="date"],
+input[type="number"],
+select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  padding: 1rem 5rem;
+  border: none;
+  border-radius: 15px;
+  color: #000;
+  background-color: #F4CE14;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+input[type="submit"]:hover {
+  background-color: #F4CE14;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
